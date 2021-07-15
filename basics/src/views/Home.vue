@@ -5,7 +5,7 @@
     <h3>{{ animal }}</h3>
     <button @click="changeAnimal">Change Animal</button>
     <ul>
-      <li v-for="animal in animals" :key="animal">{{ animal }}</li>
+      <li v-for="animal in animals" :key="animal">{{ animal }}</li>  <!--   --> 
     </ul>
     <h2 v-if="isLoggedIn">Welcome</h2>
     <h2 v-else>Please Login</h2>
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       student: "Harry",
-      animals: ["horse", "savva", "pig", "Zebra", "lion"],
+      animals: ["horse", "savva(monky)", "pig", "Zebra", "lion"],
       animal: "",
       isLoggedIn: false,
     };
