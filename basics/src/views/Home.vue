@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <h1>Hello {{ student }}</h1>
+    <div>{{ info }} </div>
     <button v-on:click="changeStudent">Change Student</button>
     <h3>{{ animal }}</h3>
     <button @click="changeAnimal">Change Animal</button>
@@ -16,8 +17,9 @@
 
 <script>
 // @ is an alias to /src
-
+import axios from 'axios';
 export default {
+  
   name: "Home",
   components: {},
   data() {
@@ -26,6 +28,7 @@ export default {
       animals: ["horse", "savva(monky)", "pig", "Zebra", "lion"],
       animal: "",
       isLoggedIn: false,
+       info: null,
     };
   },
   methods: {
@@ -45,6 +48,10 @@ export default {
   },
   created() {},
   mounted() {
+    // DONT FORGET npm i axios
+    axios
+      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(response => (this.info = response))
     this.changeAnimal();
   },
   beforeCreate() {},
