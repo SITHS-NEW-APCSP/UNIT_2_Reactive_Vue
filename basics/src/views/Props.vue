@@ -24,9 +24,7 @@ export default {
     EmittingChild,
   },
   methods: {
-    executeEvent(msg) {
-      alert(`Event emitted from child element with message: ${msg}`);
-    },
+    
   },
 };
 </script>
