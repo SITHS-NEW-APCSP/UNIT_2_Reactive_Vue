@@ -2,14 +2,14 @@
   <div>
     <h1>Child prop:</h1>
     <Child :greeting="greeting" :icecream="icecream" />
-    <h1>EmittingChild prop ($emit):</h1>
-    <EmittingChild :buttonText="buttonText" @event-emit="executeEvent" />
+    <!--<h1>EmittingChild prop ($emit):</h1>-->
+    <!--<EmittingChild :buttonText="buttonText" @event-emit="executeEvent" />-->
   </div>
 </template>
 
 <script>
 import Child from "../components/Child";
-import EmittingChild from "../components/EmittingChild";
+//import EmittingChild from "../components/EmittingChild";
 
 export default {
   data() {
@@ -21,7 +21,7 @@ export default {
   },
   components: {
     Child,
-    EmittingChild,
+    
   },
   methods: {
     
