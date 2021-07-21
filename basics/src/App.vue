@@ -3,7 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/props">Props</router-link> |
-      <router-link to="/form">Form</router-link>
+      <router-link to="/form">Form</router-link> |
+      <router-link to="/HomeC">HomeC</router-link>
+      
     </div>
     <router-view />
   </div>

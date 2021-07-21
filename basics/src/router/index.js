@@ -11,6 +11,7 @@ const routes = [
     component: Home,
     
   },
+  
   {
     path: "/Props",
     name: "Props",
@@ -26,6 +27,38 @@ const routes = [
 
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Form.vue"),
+  },
+  {
+    path: '/HomeC',
+    name : "HomeC",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/HomeC/Index.vue"),
+    
+
+    children : [
+      {
+        path: 'child1',
+        name : "child1",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/HomeC/child1.vue"),
+        
+      },
+      {
+        path: 'child2',
+        name : "child2",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/HomeC/child2.vue"),
+        
+      },
+      {
+        path: "cow",
+        name : "cowabunga",
+        component: () =>
+          import(/* webpackChunkName: "about" */ "../views/HomeC/cowabunga.vue"),
+        
+      },
+    ]
+    
   },
 ];
 
