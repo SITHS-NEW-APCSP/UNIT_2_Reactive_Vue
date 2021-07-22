@@ -51,8 +51,9 @@ const routes = [
         
       },
       {
-        path: "cow",
+        path: "cow/:c",
         name : "cowabunga",
+        
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/HomeC/cowabunga.vue"),
         
