@@ -1,12 +1,18 @@
 <template>
   <div class="container">
+    <h1>API Example</h1>
+    <!-- this 'p' element contains the dynamically-changing `apiData` property -->
+    <!-- of the page's data object. It changes on reload and on pressing the button -->
+    <p>{{apiData}}</p>
+    <!-- we link the button's click event to our defined fetch method -->
+    <button @click="fetchData">Fetch API</button>
+    <hr>
     <h1>Hello {{ student }}</h1>
-    <div>{{ info }} </div>
     <button v-on:click="changeStudent">Change Student</button>
     <h3>{{ animal }}</h3>
     <button @click="changeAnimal">Change Animal</button>
     <ul>
-      <li v-for="animal in animals" :key="animal">{{ animal }}</li>  <!--   --> 
+      <li v-for="animal in animals" :key="animal">{{ animal }}</li>
     </ul>
     <h2 v-if="isLoggedIn">Welcome</h2>
     <h2 v-else>Please Login</h2>
@@ -16,10 +22,8 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import axios from 'axios';
+import axios from "axios";
 export default {
-  
   name: "Home",
   components: {},
   data() {
@@ -28,30 +32,36 @@ export default {
       animals: ["horse", "savva(monky)", "pig", "Zebra", "lion"],
       animal: "",
       isLoggedIn: false,
-       info: null,
+      apiData: null,
     };
   },
   methods: {
-    changeStudent: function() {
+    changeStudent: function () {
       this.student = "Charlene";
     },
-    changeAnimal: function() {
+    changeAnimal: function () {
       let number = Math.floor(Math.random() * 5);
       this.animal = this.animals[number];
     },
-    login: function() {
+    login: function () {
       this.isLoggedIn = true;
     },
-    logout: function() {
+    logout: function () {
       this.isLoggedIn = false;
+    },
+    fetchData: function () {
+      // using axios for api fetch requests (works similarly to fetch())
+      axios
+        .get("https://api.quotable.io/random")
+        .then((response) => (this.apiData = response.data));
+        // after getting the response, we set the `apiData` property of the 
+        // data object to the response's data
+      console.log("Fetched from API!");
     },
   },
   created() {},
   mounted() {
-    // DONT FORGET npm i axios
-    axios
-      .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-      .then(response => (this.info = response))
+    this.fetchData();
     this.changeAnimal();
   },
   beforeCreate() {},
