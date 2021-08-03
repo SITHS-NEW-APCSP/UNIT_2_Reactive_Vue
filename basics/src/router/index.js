@@ -51,7 +51,7 @@ const routes = [
         
       },
       {
-        path: "cow/:c",
+        path: "cow/:c",                 // <----- :c signifies a dynamic component
         name : "cowabunga",
         
         component: () =>

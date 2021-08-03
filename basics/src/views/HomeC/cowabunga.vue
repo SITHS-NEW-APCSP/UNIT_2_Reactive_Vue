@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>cowabunga {{$route.params.c}} electric boogaloo</h1>
+      <h1>cowabunga {{$route.params.c}} electric boogaloo</h1>      <!--this is us getting the dynamic route param. we always have acsess to it here, no matter the instance or value-->
       <h1>cowabunga</h1>
       <h1>cowabunga</h1>
       <h1>cowabunga</h1>
