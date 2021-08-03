@@ -53,7 +53,7 @@ const routes = [
       {
         path: "cow/:c",                 // <----- :c signifies a dynamic component
         name : "cowabunga",
-        
+      
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/HomeC/cowabunga.vue"),
         
